@@ -1,0 +1,189 @@
+@import "tailwindcss";
+@import "tailwindcss";
+
+/* =========================================
+   SAFAL BAKERY — GLOBAL THEME
+========================================= */
+
+@layer base {
+  :root {
+    font-family:
+      Inter,
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    color-scheme: light;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply m-0 min-h-screen bg-stone-50 text-stone-900 antialiased;
+    min-width: 320px;
+  }
+
+  button,
+  input,
+  select,
+  textarea {
+    font: inherit;
+  }
+
+  button {
+    @apply cursor-pointer transition-all duration-200;
+  }
+
+  button:focus-visible,
+  a:focus-visible {
+    @apply outline-none ring-4 ring-amber-200;
+  }
+
+  a {
+    @apply transition-colors duration-200;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply tracking-tight;
+  }
+
+  ::selection {
+    @apply bg-amber-200 text-stone-900;
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-stone-100;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-stone-300;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-amber-700;
+  }
+}
+
+/* =========================================
+   FORMS — PRODUCTS, SETTINGS & SEARCH
+========================================= */
+
+@layer components {
+
+  input:not([type="checkbox"]):not([type="radio"]),
+  select,
+  textarea {
+    @apply rounded-xl border border-stone-200 bg-white px-3 py-2.5 text-sm text-stone-800 shadow-sm outline-none transition duration-200;
+  }
+
+  input:not([type="checkbox"]):not([type="radio"]):focus,
+  select:focus,
+  textarea:focus {
+    @apply border-amber-600 ring-4 ring-amber-100;
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    @apply text-stone-400;
+  }
+
+  input[type="checkbox"],
+  input[type="radio"] {
+    @apply accent-amber-700;
+  }
+
+  /* Tables throughout the application */
+  table {
+    @apply w-full border-collapse text-left text-sm;
+  }
+
+  thead {
+    @apply bg-stone-100 text-stone-600;
+  }
+
+  thead th {
+    @apply whitespace-nowrap px-5 py-3 text-xs font-semibold uppercase tracking-wider;
+  }
+
+  tbody tr {
+    @apply border-b border-stone-100 transition-colors duration-200;
+  }
+
+  tbody tr:hover {
+    @apply bg-amber-50/60;
+  }
+
+  tbody tr:last-child {
+    @apply border-b-0;
+  }
+
+  tbody td {
+    @apply px-5 py-4 align-middle;
+  }
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fade-up 0.35s ease-out both;
+  }
+
+  .bakery-shadow {
+    @apply shadow-lg shadow-stone-200/60;
+  }
+}
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 640px) {
+  main {
+    @apply text-sm;
+  }
+
+  thead th {
+    @apply px-3 py-3;
+  }
+
+  tbody td {
+    @apply px-3 py-3;
+  }
+}
