@@ -17,7 +17,7 @@ export const getProducts = (): Product[] => {
 };
 
 export const saveProducts = (products: Product[]) => {
-  localStorage.setItem(PRODUCTS_KEY, JSON.stringify(products));
+  localStorage.setItem(PRODUCTS_KEY, JSON.stringify(products)); 
   window.dispatchEvent(new Event(INVENTORY_UPDATED));
 };
 
